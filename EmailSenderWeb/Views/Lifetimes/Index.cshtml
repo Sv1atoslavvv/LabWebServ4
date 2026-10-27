@@ -1,0 +1,19 @@
+@model LifetimeDemoModel
+@{
+    ViewData["Title"] = "Життєві цикли сервісів";
+}
+<section class="hero">
+    <p class="eyebrow">Dependency Injection</p>
+    <h1>Життєві цикли сервісів</h1>
+    <p class="lead">На цій сторінці кожен сервіс запитується двічі в межах одного HTTP-запиту.</p>
+</section>
+<div class="card table-wrap">
+    <table>
+        <thead><tr><th>Реєстрація</th><th>Екземпляр 1</th><th>Екземпляр 2</th><th>Поведінка</th></tr></thead>
+        <tbody>
+            <tr><td>Transient</td><td>@Model.TransientFirst</td><td>@Model.TransientSecond</td><td>Новий екземпляр при кожному запиті до контейнера.</td></tr>
+            <tr><td>Scoped</td><td>@Model.ScopedFirst</td><td>@Model.ScopedSecond</td><td>Один екземпляр у межах HTTP-запиту.</td></tr>
+            <tr><td>Singleton</td><td>@Model.SingletonFirst</td><td>@Model.SingletonSecond</td><td>Один екземпляр на весь час роботи застосунку.</td></tr>
+        </tbody>
+    </table>
+</div>

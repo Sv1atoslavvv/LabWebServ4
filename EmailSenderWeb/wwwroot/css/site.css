@@ -1,0 +1,35 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light; font-family: Inter, "Segoe UI", Arial, sans-serif; color: #17243b; background: #f4f7fb; }
+body { margin: 0; min-height: 100vh; }
+.container { width: min(100% - 36px, 980px); margin: 0 auto; }
+.site-header { background: #10233f; color: #fff; }
+.nav-row { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { color: #fff; text-decoration: none; font-weight: 750; font-size: 1.15rem; }
+nav { display: flex; gap: 22px; }
+nav a { color: #d6e3f4; text-decoration: none; }
+nav a:hover { color: #fff; }
+main { padding-top: 58px; padding-bottom: 54px; }
+.hero { margin-bottom: 28px; }
+.eyebrow { color: #4774b9; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 10px 0; }
+.lead { color: #617087; max-width: 680px; line-height: 1.65; }
+.card { background: #fff; border: 1px solid #e0e7f0; border-radius: 16px; box-shadow: 0 12px 32px #17365d0d; }
+.form-card { max-width: 680px; padding: 30px; }
+form { display: grid; gap: 10px; }
+label { font-weight: 650; margin-top: 8px; }
+input, textarea { width: 100%; border: 1px solid #cbd6e4; border-radius: 9px; padding: 12px 14px; font: inherit; color: inherit; background: #fff; }
+input:focus, textarea:focus { outline: 3px solid #dceaff; border-color: #4c84d3; }
+textarea { resize: vertical; }
+button, .button-link { border: 0; border-radius: 9px; background: #2367c9; color: #fff; padding: 12px 19px; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; width: fit-content; margin-top: 12px; }
+button:hover, .button-link:hover { background: #174f9e; }
+.field-error, .validation-summary { color: #a83232; font-size: .92rem; }
+.validation-summary ul { margin-top: 0; }
+.alert { padding: 14px 18px; border-radius: 10px; max-width: 680px; margin-bottom: 18px; }
+.success { background: #e7f7ef; color: #17633b; border: 1px solid #b9e8cd; }
+.table-wrap { overflow-x: auto; padding: 8px 20px; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th, td { border-bottom: 1px solid #e8edf4; padding: 15px 12px; vertical-align: top; }
+th { color: #50637d; font-size: .9rem; }
+tr:last-child td { border-bottom: 0; }
+.footer { color: #8290a3; border-top: 1px solid #e1e7ee; padding: 20px 0 28px; font-size: .88rem; }
+@media (max-width: 620px) { .nav-row { align-items: flex-start; padding: 16px 0; flex-direction: column; } nav { gap: 16px; flex-wrap: wrap; } .form-card { padding: 22px; } }

@@ -1,0 +1,28 @@
+@model EmailFormModel
+@{
+    ViewData["Title"] = "Надсилання email";
+}
+<section class="hero">
+    <p class="eyebrow">Лабораторна робота № 3 · Dependency Injection</p>
+    <h1>Надішліть повідомлення</h1>
+    <p class="lead">Введіть одержувача й текст листа. Форму обробляє MVC action, який викликає сервіс IEmailSender.</p>
+</section>
+@if (ViewBag.Notice is string notice)
+{
+    <div class="alert success" role="status">@notice</div>
+}
+<div class="card form-card">
+    <form asp-action="Index" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+        <label asp-for="Recipient"></label>
+        <input asp-for="Recipient" type="email" autocomplete="email" placeholder="recipient@example.com" />
+        <span asp-validation-for="Recipient" class="field-error"></span>
+
+        <label asp-for="Message"></label>
+        <textarea asp-for="Message" rows="7" placeholder="Текст повідомлення..."></textarea>
+        <span asp-validation-for="Message" class="field-error"></span>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>

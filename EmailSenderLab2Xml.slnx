@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="EmailSenderWeb.Services/EmailSenderWeb.Services.csproj" />
+  <Project Path="EmailSenderWeb/EmailSenderWeb.csproj" />
+</Solution>

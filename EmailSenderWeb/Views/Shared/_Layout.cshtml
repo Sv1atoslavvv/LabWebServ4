@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EmailSenderWeb</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-row">
+            <a class="brand" asp-controller="Home" asp-action="Index">Email Sender</a>
+            <nav>
+                <a asp-controller="Home" asp-action="Index">Надіслати лист</a>
+                <a asp-controller="Lifetimes" asp-action="Index">DI lifetimes</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        @RenderBody()
+    </main>
+    <footer class="container footer">Лабораторна робота № 3 · ASP.NET Core MVC · MailKit</footer>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

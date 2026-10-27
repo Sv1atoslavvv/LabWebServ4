@@ -1,0 +1,16 @@
+**/bin/
+**/obj/
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.env
+secrets.json
+**/Logs/
+
+# Local SDK and package caches used for this workspace build
+.dotnet/
+.dotnet-home/
+.nuget/
