@@ -53,6 +53,29 @@ public sealed class Startup
         }
 
         app.UseHttpsRedirection();
+
+        // Files are served only through FilesController, which validates the path
+        // and chooses safe inline types. Do not expose uploaded files as static content.
+        app.Use(async (context, next) =>
+        {
+            if (context.Request.Path.StartsWithSegments("/Files", out var remainder))
+            {
+                var route = remainder.Value?.Trim('/');
+                var isFilesPage = string.IsNullOrEmpty(route)
+                    || string.Equals(route, "Details", StringComparison.OrdinalIgnoreCase)
+                    || string.Equals(route, "Upload", StringComparison.OrdinalIgnoreCase)
+                    || string.Equals(route, "Preview", StringComparison.OrdinalIgnoreCase);
+
+                if (!isFilesPage)
+                {
+                    context.Response.StatusCode = StatusCodes.Status404NotFound;
+                    return;
+                }
+            }
+
+            await next();
+        });
+
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthorization();

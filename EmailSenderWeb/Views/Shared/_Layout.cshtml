@@ -13,13 +13,14 @@
             <nav>
                 <a asp-controller="Home" asp-action="Index">Надіслати лист</a>
                 <a asp-controller="Lifetimes" asp-action="Index">DI lifetimes</a>
+                <a asp-controller="Files" asp-action="Index">Файли</a>
             </nav>
         </div>
     </header>
     <main class="container">
         @RenderBody()
     </main>
-    <footer class="container footer">Лабораторна робота № 3 · ASP.NET Core MVC · MailKit</footer>
+    <footer class="container footer">Лабораторна робота № 4 · ASP.NET Core MVC · Завантаження файлів</footer>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

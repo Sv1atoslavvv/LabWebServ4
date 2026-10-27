@@ -1,0 +1,34 @@
+@model EmailSenderWeb.Models.StoredFileItem
+@{
+    ViewData["Title"] = "Перегляд файлу";
+}
+
+<section class="hero">
+    <p class="eyebrow">Перегляд файлу</p>
+    <h1>@Model.DisplayName</h1>
+    <p class="lead">Розмір: @(Model.Length < 1024 ? $"{Model.Length} Б" : $"{Model.Length / 1024.0:0.##} КБ") · Додано: @Model.UploadedAt.ToString("dd.MM.yyyy HH:mm")</p>
+    <a class="button-link" asp-controller="Files" asp-action="Index">← До списку файлів</a>
+</section>
+
+@if (Model.CanPreview)
+{
+    <section class="card preview-card">
+        @if (Model.DisplayName.EndsWith(".pdf", StringComparison.OrdinalIgnoreCase))
+        {
+            <iframe title="Перегляд PDF: @Model.DisplayName" src="@Url.Action("Preview", "Files", new { name = Model.StoredName })"></iframe>
+        }
+        else if (new[] { ".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp" }.Contains(System.IO.Path.GetExtension(Model.DisplayName), StringComparer.OrdinalIgnoreCase))
+        {
+            <img class="preview-image" src="@Url.Action("Preview", "Files", new { name = Model.StoredName })" alt="@Model.DisplayName" />
+        }
+        else
+        {
+            <iframe title="Перегляд текстового файлу: @Model.DisplayName" src="@Url.Action("Preview", "Files", new { name = Model.StoredName })"></iframe>
+        }
+    </section>
+}
+else
+{
+    <section class="card empty-state">Попередній перегляд цього типу файлу в браузері недоступний. Файл буде відкрито або завантажено окремо.</section>
+    <a class="button-link" asp-controller="Files" asp-action="Preview" asp-route-name="@Model.StoredName">Відкрити файл</a>
+}

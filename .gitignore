@@ -9,6 +9,8 @@
 .env
 secrets.json
 **/Logs/
+**/wwwroot/Files/*
+!**/wwwroot/Files/.gitkeep
 
 # Local SDK and package caches used for this workspace build
 .dotnet/
